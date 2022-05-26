@@ -4,13 +4,10 @@ import React, {useState} from 'react';
 import {
   SafeAreaView,
   Text,
-  View,
   StyleSheet,
-  Button,
   Pressable,
-  Modal
 } from 'react-native';
-import Formulario from './src/Components/Formulario';
+import Formulario from './src/Components/Formulario/Formulario';
 
 
 
@@ -28,7 +25,7 @@ const App = () => {
       <Text style={styles.title}>
           Administrador de citas {'      '}
         <Text style={styles.subtitle}>
-          Salón de belleza
+          Veterinaria
         </Text>
       </Text>
       <Pressable onPress={ModalChange}
