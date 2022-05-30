@@ -3,8 +3,17 @@ import {Modal, Text, Pressable, StyleSheet, SafeAreaView, TextInput, View, Scrol
 import Campos from './Campo'
 import {useForm} from '../../hooks/useForm'
 
-const Formulario = ({modalVisible, modalChange}) => {
+const Formulario = ({modalVisible, modalChange, setPacientes, pacientes}) => {
 
+    const initialFormState = {
+        id: Date.now(),
+        nombrepaciente: '',
+        nombrepropietario: '',
+        email: '',
+        telefono:'',
+        sintomas:'',
+        fecha: ''
+    }
     
     
    
@@ -21,13 +30,11 @@ const Formulario = ({modalVisible, modalChange}) => {
 
                
                 <ScrollView>
-                            <Campos />
+                            <Campos initialFormState={initialFormState} modalChange={modalChange} setPacientes={setPacientes} pacientes={pacientes}/>
                      
-                <Pressable onPress={modalChange} style={styles.btnSubmit} >
-                    <Text style={styles.txtSubmit}>Guardar cita</Text>
-                </Pressable>
+                
                 <Pressable onPress={modalChange} style={styles.btnClose} >
-                    <Text style={styles.txtClose}>Cancelar</Text>
+                    <Text style={styles.txtClose}> X Cancelar</Text>
                 </Pressable>
 
                 </ScrollView>
@@ -58,7 +65,7 @@ const styles = StyleSheet.create({
     },
     btnClose:{
         
-        backgroundColor: '#FF0000',
+        backgroundColor: '#3c096c',
         padding: 10,
         marginTop: 10,
         marginHorizontal: 30,
@@ -67,23 +74,12 @@ const styles = StyleSheet.create({
     txtClose:{
         textAlign: 'center',
         color: '#ffff',
-        fontWeight: '900'
-
-    },
-    btnSubmit:{
-        backgroundColor: '#FFFF',
-        padding: 18,
-        marginTop: 10,
-        marginHorizontal: 30,
-        borderRadius: 10
-    },
-    txtSubmit:{
-        textAlign: 'center',
-        color: '#6D28D9',
         fontWeight: '900',
         textTransform: 'uppercase'
 
     },
+  
+  
  
 })
 
